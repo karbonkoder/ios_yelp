@@ -25,6 +25,9 @@
 		42FD6C6E18DC286B000BF2B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42FD6C6C18DC286B000BF2B9 /* InfoPlist.strings */; };
 		42FD6C7018DC286B000BF2B9 /* YelpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FD6C6F18DC286B000BF2B9 /* YelpTests.m */; };
 		63E591F41F684901AF8C1C19 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC6D18C14F46F8AF2EA320 /* libPods.a */; };
+		F6AEE8FE1BE6B87E0037FFFD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F6AEE8FD1BE6B87E0037FFFD /* README.md */; settings = {ASSET_TAGS = (); }; };
+		F6AEE9031BE6CF600037FFFD /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AEE9011BE6CF600037FFFD /* BusinessCell.m */; settings = {ASSET_TAGS = (); }; };
+		F6AEE9041BE6CF600037FFFD /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6AEE9021BE6CF600037FFFD /* BusinessCell.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,10 @@
 		42FD6C6F18DC286B000BF2B9 /* YelpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YelpTests.m; sourceTree = "<group>"; };
 		9DEC6D18C14F46F8AF2EA320 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28C751BD8043032F84076DB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F6AEE8FD1BE6B87E0037FFFD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F6AEE9001BE6CF600037FFFD /* BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCell.h; sourceTree = "<group>"; };
+		F6AEE9011BE6CF600037FFFD /* BusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCell.m; sourceTree = "<group>"; };
+		F6AEE9021BE6CF600037FFFD /* BusinessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
 		FCA9D9EAA444BE83C105EDA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +130,7 @@
 		42FD6C3E18DC286A000BF2B9 = {
 			isa = PBXGroup;
 			children = (
+				F6AEE8FD1BE6B87E0037FFFD /* README.md */,
 				42FD6C5018DC286B000BF2B9 /* Yelp */,
 				42FD6C6918DC286B000BF2B9 /* YelpTests */,
 				42FD6C4918DC286B000BF2B9 /* Frameworks */,
@@ -157,6 +165,7 @@
 			children = (
 				11F304F91BDC20F3000ED8EF /* Models */,
 				420474F318DC297600E88E07 /* API */,
+				F6AEE8FF1BE6CF170037FFFD /* Views */,
 				420474F718DC2A9200E88E07 /* View Controllers */,
 				42FD6C5918DC286B000BF2B9 /* AppDelegate.h */,
 				42FD6C5A18DC286B000BF2B9 /* AppDelegate.m */,
@@ -203,6 +212,16 @@
 				A28C751BD8043032F84076DB /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6AEE8FF1BE6CF170037FFFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F6AEE9001BE6CF600037FFFD /* BusinessCell.h */,
+				F6AEE9011BE6CF600037FFFD /* BusinessCell.m */,
+				F6AEE9021BE6CF600037FFFD /* BusinessCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AEE9041BE6CF600037FFFD /* BusinessCell.xib in Resources */,
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				11F304F81BDC02C1000ED8EF /* LaunchScreen.storyboard in Resources */,
 				420474FC18DC2B2100E88E07 /* MainViewController.xib in Resources */,
@@ -353,9 +373,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AEE8FE1BE6B87E0037FFFD /* README.md in Sources */,
 				42FD6C5B18DC286B000BF2B9 /* AppDelegate.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
 				420474F618DC299500E88E07 /* YelpClient.m in Sources */,
+				F6AEE9031BE6CF600037FFFD /* BusinessCell.m in Sources */,
 				420474FB18DC2B2100E88E07 /* MainViewController.m in Sources */,
 				11F304FF1BDC476D000ED8EF /* YelpBusiness.m in Sources */,
 			);
