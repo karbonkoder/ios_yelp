@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "YelpBusiness.h"
 #import "BusinessCell.h"
+#import "FiltersViewController.h"
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -34,6 +35,12 @@
     self.businesses = [[NSMutableArray alloc] init];
     
     self.title = @"iSearch";
+    
+    UISearchBar* searchBar = [[UISearchBar alloc] init];
+    [searchBar sizeToFit];
+    self.navigationItem.titleView = searchBar;
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterButton)];
 
     [YelpBusiness searchWithTerm:@"Restaurants"
                         sortMode:YelpSortModeBestMatched
@@ -67,6 +74,15 @@
     return cell;
 }
 
+#pragma mark - private methods
+
+- (void)onFilterButton {
+    FiltersViewController *fvc = [[FiltersViewController alloc] init];
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:fvc];
+    
+    [self presentViewController:nvc animated:YES completion:nil];
+}
 
 
 @end
