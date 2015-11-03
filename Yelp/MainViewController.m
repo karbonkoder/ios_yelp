@@ -32,6 +32,8 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.businesses = [[NSMutableArray alloc] init];
+    
+    self.title = @"iSearch";
 
     [YelpBusiness searchWithTerm:@"Restaurants"
                         sortMode:YelpSortModeBestMatched
