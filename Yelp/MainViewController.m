@@ -11,7 +11,7 @@
 #import "BusinessCell.h"
 #import "FiltersViewController.h"
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -78,11 +78,16 @@
 
 - (void)onFilterButton {
     FiltersViewController *fvc = [[FiltersViewController alloc] init];
-    
+    fvc.delegate = self;
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:fvc];
     
     [self presentViewController:nvc animated:YES completion:nil];
 }
 
+#pragma mark - Filter delegate methods
+
+- (void)filtersViewController:(FiltersViewController *) filtersViewController didChangeFilters:(NSDictionary *) filters {
+    NSLog(@"Called delegate method");
+}
 
 @end
