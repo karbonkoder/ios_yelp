@@ -109,6 +109,7 @@
 }
 
 - (void)onSearchButton {
+    // TODO process current app state and compute filters so it's passed properly
     [self.delegate filtersViewController:self didChangeFilters:self.filters];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

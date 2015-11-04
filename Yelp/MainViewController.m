@@ -87,7 +87,19 @@
 #pragma mark - Filter delegate methods
 
 - (void)filtersViewController:(FiltersViewController *) filtersViewController didChangeFilters:(NSDictionary *) filters {
-    NSLog(@"Called delegate method");
+    // TODO consume filters and constructuct below query
+    [YelpBusiness searchWithTerm:@"Restaurants"
+                        sortMode:YelpSortModeHighestRated
+                      categories:@[@"african", @"newamerican"]
+                           deals:YES
+                      completion:^(NSArray *businesses, NSError *error) {
+                          for (YelpBusiness *business in businesses) {
+                              NSLog(@"%@", business);
+                              [self.businesses addObject:business];
+                          }
+                          
+                          [self.tableView reloadData];
+                      }];
 }
 
 @end
