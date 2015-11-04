@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *dealsTableView;
 @property (nonatomic, readonly) NSDictionary *filters;
+@property (nonatomic, strong) NSDictionary *sections;
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSMutableSet *selectedCategories;
 
@@ -65,18 +66,28 @@
 #pragma mark - Table view methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.categories.count;
+    return [self.sections[[self.sections allKeys][section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell"];
 
-    cell.cellTitleLabel.text = self.categories[indexPath.row][@"name"];
+    NSString *section = [self.sections allKeys][indexPath.section];
+    cell.cellTitleLabel.text = self.sections[section][indexPath.row];
+    //self.categories[indexPath.section][indexPath.row][@"name"];
     cell.on = [self.selectedCategories containsObject:self.categories[indexPath.row]];
     
     cell.delegate = self;
     
     return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.sections.count;
+}
+
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.sections allKeys][section];
 }
 
 # pragma mark - Switch cell delegate methods
@@ -103,6 +114,33 @@
 }
 
 -(void)initCategories {
+    // category, sort (best match, distance, highest rated), distance, deals (on/off)
+    //Offering a Deal
+    //
+    //Distance
+    //Auto
+    //0.3 miles
+    //1 mile
+    //5 mile
+    //20 mile
+    //
+    //Sort By
+    //Best Match
+    //Distance
+    //Highest Rated
+    //
+    //Category
+    //Afghan
+    //African
+    //American New
+    //See All
+    
+    self.sections =
+    @{ @"Deal" : @[@"Offering a Deal"],
+       @"Distance" : @[@"Auto", @"0.3 miles", @"1 mile", @"5 miles"],
+       @"Category" : @[@"Afgan", @"African", @"American (New)", @"American (Traditional)"],
+       @"Sort By" : @[@"Best Match", @"Distance", @"Highest Rated"]};
+    
     self.categories =
         @[@{@"name" : @"Afgan", @"code" : @"afgani"},
           @{@"name" : @"African", @"code" : @"african"},
